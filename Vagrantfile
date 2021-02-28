@@ -28,4 +28,5 @@ Vagrant.configure("2") do |config|
     SHELL
     shell = sprintf(shell, ip, fai_config_src)
     config.vm.provision :shell, inline: shell
+    config.vm.provision :shell, inline: "sudo fai-monitor -d", run: "always"  # start fai-monitor to allow autodiscover cd to work
 end
